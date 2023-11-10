@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import PocketBase from 'pocketbase';
+import { Button, Card } from './components/index';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
+
 
 function App() {
   const [games, setGames] = useState();
@@ -21,12 +23,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header>Steam Clone</header>
-      <main>
-        {games && games.map((game) => <div key={game.id}>{game.name}</div>)}
+    <div className='app'>
+      <h1 className='title'>Steam Clone</h1>
+      <nav className='nav-bar'><Button type='text'>Home</Button></nav>
+      <main className='content'>
+        {games && games.map(({ name, description, price, image }) => {
+          const cardProps = {
+            name,
+            description,
+            price,
+            imgUrl: image,
+          }
+          return <Card key={name} {...cardProps} />;
+        })}
       </main>
-      <footer class="footer">&copy; hecho por: Mateo Valencia G.</footer>
+      <footer className="footer">&copy; hecho por: Mateo Valencia G.</footer>
     </div>
   );
 }

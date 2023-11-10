@@ -1,0 +1,17 @@
+.card-img {
+  width: 240px;
+  height: 360px;
+}
+
+.card__button-container {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.ant-card-meta-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,27 @@
+.primary--DARK {
+  background-color: #5864fd;
+}
+
+.primary--DARK:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: #3644fa;
+}
+
+.default--DARK {
+  border-color: #9e9cbd;
+  background-color: transparent;
+  color: #9e9cbd;
+}
+
+.default--DARK:not(:disabled):not(.ant-btn-disabled):hover {
+  color: white;
+  border-color: white;
+}
+
+.text--DARK {
+  color: white;
+}
+
+.text--DARK:not(:disabled):not(.ant-btn-disabled):hover {
+  color: white;
+  background-color: #45426d;
+}

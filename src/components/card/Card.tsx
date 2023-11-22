@@ -2,12 +2,14 @@ import React from 'react';
 import { Card as AntCard } from 'antd';
 import { CardProps } from './card.types';
 import { Button } from '..';
-
-const { Meta } = AntCard;
+import { useSelector } from 'react-redux';
 
 export const Card = ({ name, description, price, imgUrl }: CardProps) => {
+  const theme = useSelector((state: any) => state.theme.value);
+
   return (
     <AntCard
+      className={`card card--${theme}`}
       hoverable
       style={{
         width: 240,
@@ -16,9 +18,12 @@ export const Card = ({ name, description, price, imgUrl }: CardProps) => {
         <img className="card-img" alt={`Portada de ${name}`} src={imgUrl} />
       }
     >
-      <Meta className="card-text" title={name} description={description} />
+      <div className={`card-text card-text--${theme}`}>
+        <h3 className={`card-title`}>{name}</h3>
+        <p className={`card-description`}>{description}</p>
+      </div>
       <div className="card__button-container">
-        <Button>More</Button>
+        <Button type="default">More</Button>
         <Button type="primary">Add</Button>
       </div>
     </AntCard>

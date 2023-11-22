@@ -1,4 +1,5 @@
 @import url('./components/card/card.css');
+@import url('./components/button/button.css');
 
 * {
   margin: 0;
@@ -11,11 +12,23 @@
   flex-direction: column;
 }
 
+.app--LIGHT {
+  background-color: white;
+}
+
+.app--DARK {
+  background-color: #232143;
+}
+
 .title {
   align-items: center;
   display: flex;
   height: 100px;
   justify-content: center;
+}
+
+.title--DARK {
+  color: white;
 }
 
 .nav-bar {
@@ -41,4 +54,8 @@
   display: flex;
   height: 50px;
   justify-content: center;
+}
+
+.footer--DARK {
+  color: white;
 }

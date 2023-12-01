@@ -1,3 +1,7 @@
+.card-link {
+  text-decoration: none;
+}
+
 .card--DARK {
   border-color: transparent;
   background-color: #2f2d55;

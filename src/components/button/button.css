@@ -25,3 +25,12 @@
   color: white;
   background-color: #45426d;
 }
+
+.link--DARK {
+  color: white;
+}
+
+.link--DARK:not(:disabled):not(.ant-btn-disabled):hover {
+  color: white;
+  background-color: #e0e0e034;
+}

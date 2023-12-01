@@ -1,0 +1,78 @@
+.game-page__bg-img {
+  background-position: 50%;
+  background-size: cover;
+  display: block;
+  filter: blur();
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  -webkit-filter: blur();
+  -moz-filter: blur();
+  -o-filter: blur();
+  -ms-filter: blur();
+  z-index: 1;
+}
+
+.game-page {
+  align-items: center;
+  background-size: cover;
+  backdrop-filter: blur(60px);
+  background-color: rgba(36, 34, 68, 0.6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+
+.game-page__nav {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  width: 1004px;
+}
+
+.game-page__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 1004px;
+}
+
+.game-page__info {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: white;
+  padding: 50px 40px;
+  width: 55%;
+}
+
+.game-page__title {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.game-page__description {
+  margin-bottom: 80px;
+}
+
+.game-page__payment {
+  display: flex;
+  gap: 20px;
+}
+
+.game-page__price {
+  align-items: center;
+  color: #5864fd;
+  display: flex;
+  font-size: 25px;
+}
+
+.game-page__img {
+  border-radius: 20px;
+  aspect-ratio: 9 / 13;
+  width: 40%;
+}

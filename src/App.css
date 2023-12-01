@@ -1,5 +1,7 @@
 @import url('./components/card/card.css');
 @import url('./components/button/button.css');
+@import url('./pages/home/Home.css');
+@import url('./pages/game/Game.css');
 
 * {
   margin: 0;

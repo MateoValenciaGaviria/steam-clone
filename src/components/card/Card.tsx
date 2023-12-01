@@ -9,7 +9,7 @@ export const Card = ({ id, name, description, price, imgUrl }: CardProps) => {
   const gamePage = `/games/${id}`;
 
   return (
-    <a href={gamePage}>
+    <a className={'card-link'} href={gamePage}>
       <AntCard
         className={`card card--${theme}`}
         hoverable
@@ -25,9 +25,7 @@ export const Card = ({ id, name, description, price, imgUrl }: CardProps) => {
           <p className={`card-description`}>{description}</p>
         </div>
         <div className="card__button-container">
-          <a href={gamePage}>
-            <Button type="default">More</Button>
-          </a>
+          <Button type="default">More</Button>
           <Button type="primary">Add</Button>
         </div>
       </AntCard>

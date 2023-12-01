@@ -6,12 +6,22 @@ import { useSelector } from 'react-redux';
 export const Button = ({
   type,
   children,
+  icon,
+  href,
+  size,
   onClick,
 }: PropsWithChildren<ButtonProps>) => {
   const theme = useSelector((state: any) => state.theme.value);
 
   return (
-    <AntButton className={`${type}--${theme}`} type={type} onClick={onClick}>
+    <AntButton
+      className={`${type}--${theme}`}
+      type={type}
+      onClick={onClick}
+      icon={icon}
+      href={href}
+      size={size}
+    >
       {children}
     </AntButton>
   );

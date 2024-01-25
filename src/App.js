@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
-import { Home, Game } from './pages/index';
+import { Home, Game, Admin } from './pages/index';
 
 function App() {
   const router = createBrowserRouter([
@@ -11,6 +11,10 @@ function App() {
     {
       path: "/games/:gameId",
       element: <Game />
+    },
+    {
+      path: "/admin",
+      element: <Admin />
     }
   ]);
 

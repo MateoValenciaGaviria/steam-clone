@@ -4,6 +4,7 @@ import PocketBase from 'pocketbase';
 import { Button, Card } from '../../components/index';
 import { useSelector, useDispatch } from "react-redux";
 import { changeTheme } from '../../redux/reducers/themeSlice';
+import { useNavigate } from 'react-router-dom';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
@@ -11,6 +12,7 @@ export const Home = () => {
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
   const [games, setGames] = useState();
+  const navigate = useNavigate()
   const getRecords = async () => {
     try {
       const records = await pb.collection("games").getFullList({ requestKey: null });
@@ -33,7 +35,10 @@ export const Home = () => {
 
     <div className={`home home--${theme}`}>
       <h1 className={`title title--${theme}`}>Steam Clone</h1>
-      <nav className={`nav-bar nav-bar--${theme}`}><Button type='text' onClick={themeHandler}>Cambiar Tema</Button></nav>
+      <nav className={`nav-bar nav-bar--${theme}`}>
+        <Button type='text' onClick={themeHandler}>Cambiar Tema</Button>
+        <Button type='text' onClick={() => navigate('/admin')}>Admin</Button>
+      </nav>
       <main className={`content conten--${theme}`}>
         {games && games.map(({ id, name, description, price, image }) => {
           const cardProps = {

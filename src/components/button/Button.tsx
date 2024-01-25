@@ -10,6 +10,7 @@ export const Button = ({
   href,
   size,
   onClick,
+  htmlType,
 }: PropsWithChildren<ButtonProps>) => {
   const theme = useSelector((state: any) => state.theme.value);
 
@@ -21,6 +22,7 @@ export const Button = ({
       icon={icon}
       href={href}
       size={size}
+      htmlType={htmlType}
     >
       {children}
     </AntButton>

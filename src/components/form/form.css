@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ant-form-item .ant-form-item-label > label {
+  color: white;
+}

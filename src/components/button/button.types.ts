@@ -1,3 +1,4 @@
+import { ButtonHTMLType } from 'antd/es/button';
 import { ReactNode } from 'react';
 
 type SizeType = 'small' | 'middle' | 'large' | undefined;
@@ -7,4 +8,5 @@ export interface ButtonProps {
   onClick?: VoidFunction;
   size?: SizeType;
   href?: string;
+  htmlType?: ButtonHTMLType;
 }

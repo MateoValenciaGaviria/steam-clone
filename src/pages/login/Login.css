@@ -1,0 +1,30 @@
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.login--LIGHT {
+  background-color: white;
+}
+
+.login--DARK {
+  background-color: #232143;
+}
+
+.form-container {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 50px;
+  padding-right: 220px;
+  width: 50%;
+  margin-bottom: 50px;
+}

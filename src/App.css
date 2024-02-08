@@ -4,6 +4,7 @@
 @import url('./pages/home/Home.css');
 @import url('./pages/game/Game.css');
 @import url('./pages/admin/Admin.css');
+@import url('./pages/login/Login.css');
 
 * {
   margin: 0;

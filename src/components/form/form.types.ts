@@ -7,7 +7,7 @@ interface InputProps {
   label: string;
   name: string;
   rules: RuleProps[];
-  valueType: 'text' | 'number';
+  valueType: 'text' | 'number' | 'password';
 }
 
 type InitialValuesType = Partial<{ [key: string]: string | number }>;

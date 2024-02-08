@@ -12,6 +12,7 @@ export const Home = () => {
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
   const [games, setGames] = useState();
+  const [localUser, setLocalUser] = useState(JSON.parse(localStorage.getItem('user')));
   const navigate = useNavigate()
   const getRecords = async () => {
     try {
@@ -27,8 +28,14 @@ export const Home = () => {
     dispatch(changeTheme(theme === 'LIGHT' ? 'DARK' : 'LIGHT'));
   }
 
+  const clearUser = () => {
+    localStorage.clear()
+    setLocalUser();
+  }
+
   useEffect(() => {
     getRecords();
+    setLocalUser(JSON.parse(localStorage.getItem('user')));
   }, []);
 
   return (
@@ -37,7 +44,8 @@ export const Home = () => {
       <h1 className={`title title--${theme}`}>Steam Clone</h1>
       <nav className={`nav-bar nav-bar--${theme}`}>
         <Button type='text' onClick={themeHandler}>Cambiar Tema</Button>
-        <Button type='text' onClick={() => navigate('/admin')}>Admin</Button>
+        {localUser?.verified && <Button type='text' onClick={() => navigate('/admin')}>Admin</Button>}
+        {localUser?.username ? <Button type='text' onClick={clearUser}>Sign out</Button> : <Button type='text' onClick={() => navigate('/login')}>Login</Button>}
       </nav>
       <main className={`content conten--${theme}`}>
         {games && games.map(({ id, name, description, price, image }) => {

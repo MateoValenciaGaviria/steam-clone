@@ -30,7 +30,9 @@ export const Form = ({
           rules={input.rules}
           key={input.name}
         >
-          {input.valueType === 'text' ? <Input /> : <InputNumber min={0} />}
+          {input.valueType === 'password' && <Input.Password />}
+          {input.valueType === 'text' && <Input />}
+          {input.valueType === 'number' && <InputNumber min={0} />}
         </AntForm.Item>
       ))}
 

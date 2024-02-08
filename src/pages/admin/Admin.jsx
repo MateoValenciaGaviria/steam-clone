@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form } from '../../components';
+import { NavBar, Form } from '../../components';
 import { Select } from 'antd';
 import PocketBase from 'pocketbase';
 import { useSelector } from 'react-redux';
@@ -95,6 +95,7 @@ export const Admin = () => {
   return (
     <>
       {contextHolder}
+      <NavBar />
       <div className={`admin admin--${theme}`}>
         <div className={'form-container'}>
           <div className={'admin-select'}>

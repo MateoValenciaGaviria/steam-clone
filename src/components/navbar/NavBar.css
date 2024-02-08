@@ -1,0 +1,30 @@
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar--LIGHT {
+  background-color: white;
+}
+
+.nav-bar--DARK {
+  background-color: #232143;
+}
+
+.nav-bar__title {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.nav-bar__title--DARK {
+  color: white;
+}
+
+.nav-bar__container {
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  margin-bottom: 20px;
+}

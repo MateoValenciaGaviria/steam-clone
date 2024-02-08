@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button, Form } from '../../components';
+import { NavBar, Button, Form } from '../../components';
 import PocketBase from 'pocketbase';
 import { useSelector } from 'react-redux';
 import { message } from 'antd';
@@ -100,6 +100,7 @@ export const Login = () => {
   return (
     <>
       {contextHolder}
+      <NavBar />
       <div className={`login login--${theme}`}>
         <div className={'form-container'}>
           <Form inputs={action === 'login' ? loginInputs : signUpInputs} onFinish={onFinish} onFinishFailed={onFinishFailed} />

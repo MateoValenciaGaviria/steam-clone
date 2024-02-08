@@ -1,6 +1,7 @@
 @import url('./components/card/card.css');
 @import url('./components/button/button.css');
 @import url('./components/form/form.css');
+@import url('./components/navbar/NavBar.css');
 @import url('./pages/home/Home.css');
 @import url('./pages/game/Game.css');
 @import url('./pages/admin/Admin.css');

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { NavBar, Form } from '../../components';
 import { Select } from 'antd';
-import PocketBase from 'pocketbase';
 import { useSelector } from 'react-redux';
-import { message } from 'antd';
+import { useDataBase } from '../../hooks/index';
 
 const postInputs = [
   { label: 'Name', name: 'name', rules: [{ required: true, message: 'Please input the game name' }], valueType: 'text' },
@@ -28,26 +27,10 @@ const putInitialValues = { name: 'something' };
 const deleteInitialValues = {};
 
 export const Admin = () => {
-
-  const pb = new PocketBase('http://127.0.0.1:8090');
+  const { postNewGame, notification, contextHolder } = useDataBase();
   const theme = useSelector((state) => state.theme.value);
-
   const [formProps, setFormProps] = useState({ inputs: postInputs, initialValues: postInitialValues });
   const [action, setAction] = useState('post');
-
-  const [messageApi, contextHolder] = message.useMessage();
-
-  const notification = (type, customMessage) => {
-    messageApi.open({
-      type: type,
-      content: customMessage,
-      className: 'custom-class',
-      duration: 10,
-      style: {
-        marginTop: '20px',
-      },
-    });
-  };
 
   const handleChange = (value) => {
     setAction(value);
@@ -65,12 +48,6 @@ export const Admin = () => {
         break;
     }
   };
-
-  const postNewGame = async (values) => {
-    const data = values;
-    await pb.collection('games').create(data);
-    notification('success', 'The game was published!');
-  }
 
   const onFinish = (values) => {
     switch (action) {

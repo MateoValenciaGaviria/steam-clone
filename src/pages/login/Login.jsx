@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { NavBar, Button, Form } from '../../components';
-import PocketBase from 'pocketbase';
 import { useSelector } from 'react-redux';
-import { message } from 'antd';
+import { useDataBase } from '../../hooks/index';
 
 const loginInputs = [
   { label: 'Username', name: 'username', rules: [{ required: true, message: 'Please input your Username' }], valueType: 'text' },
@@ -19,53 +17,9 @@ const signUpInputs = [
 ];
 
 export const Login = () => {
-
-  const pb = new PocketBase('http://127.0.0.1:8090');
-
+  const { authUser, createNewUser, notification, contextHolder } = useDataBase();
   const theme = useSelector((state) => state.theme.value);
   const [action, setAction] = useState('login');
-  const [messageApi, contextHolder] = message.useMessage();
-  const navigate = useNavigate();
-
-  const notification = (type, customMessage) => {
-    messageApi.open({
-      type: type,
-      content: customMessage,
-      className: 'custom-class',
-      duration: 10,
-      style: {
-        marginTop: '20px',
-      },
-    });
-  };
-
-  const authUser = async (values) => {
-    const authData = await pb.collection('users').authWithPassword(
-      values.username,
-      values.password,
-    );
-    if (authData.record) {
-      localStorage.setItem('user', JSON.stringify(authData.record));
-      notification('success', `Welcome back ${values.username}!`);
-      setTimeout(() => {
-        navigate('/');
-      }, 2500);
-    } else {
-      notification('error', `User not found`);
-    }
-
-  }
-
-  const createNewUser = async (values) => {
-    const data = values;
-    data.emailVisibility = true;
-    await pb.collection('users').create(data);
-    notification('success', 'Your account has been created!');
-    localStorage.setItem('user', JSON.stringify(data));
-    setTimeout(() => {
-      navigate('/');
-    }, 2500);
-  }
 
   const onFinish = (values) => {
     switch (action) {

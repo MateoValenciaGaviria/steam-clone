@@ -1,27 +1,10 @@
-import './Home.css';
-import { useEffect, useState } from 'react';
-import PocketBase from 'pocketbase';
 import { NavBar, Card } from '../../components/index';
+import { useDataBase } from '../../hooks/index';
 import { useSelector } from "react-redux";
-
-const pb = new PocketBase('http://127.0.0.1:8090');
 
 export const Home = () => {
   const theme = useSelector((state) => state.theme.value);
-  const [games, setGames] = useState();
-  const getRecords = async () => {
-    try {
-      const records = await pb.collection("games").getFullList({ requestKey: null });
-      setGames(records);
-    } catch (error) {
-      console.log(error);
-      console.log(error.isAbort);
-    }
-  };
-
-  useEffect(() => {
-    getRecords();
-  }, []);
+  const { games } = useDataBase();
 
   return (
 

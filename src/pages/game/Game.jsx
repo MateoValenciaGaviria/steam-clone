@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import PocketBase from 'pocketbase';
 import { useParams } from 'react-router-dom';
 import { Button } from '../../components/index'
 import { LeftOutlined } from '@ant-design/icons';
-
-const pb = new PocketBase('http://127.0.0.1:8090');
+import { useDataBase } from '../../hooks/index';
 
 export const Game = () => {
   const { gameId } = useParams();
-  const [game, setGame] = useState();
-
-  const getRecord = async () => {
-    try {
-      const record = await pb.collection("games").getOne(gameId);
-      setGame(record);
-    } catch (error) {
-      console.log(error);
-      console.log(error.isAbort);
-    }
-  }
-
-  useEffect(() => {
-    getRecord();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { game } = useDataBase(gameId);
 
   return (
     <>

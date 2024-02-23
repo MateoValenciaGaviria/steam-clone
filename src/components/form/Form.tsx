@@ -9,8 +9,6 @@ export const Form = ({
   onFinish,
   onFinishFailed,
 }: FormProps) => {
-  console.log(initialValues);
-
   return (
     <AntForm
       className={'form'}
